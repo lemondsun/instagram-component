@@ -22,13 +22,16 @@ export default function PictureOnly() {
 //Here I map through the IG data and create individual items to be displayed
   const IgPosts = () => {
     return (igData.map((x) => (
-      <ImageListItem key={x.media_url}>
+      <div
+        className='image-container'
+        key={x.media_url}
+      >
       <a target="_blank" rel="noopener noreferrer" href={
         `${x.permalink}`
       }>
       <img className='instagram-image' src={`${x.media_url}`} alt='instagram post' loading="lazy" />
       </a>
-</ImageListItem>
+</div>
  
   )
   ))
@@ -36,12 +39,11 @@ export default function PictureOnly() {
   return (
     <div className='instagram-section'>
     <h1 className='header'>MY INSTAGRAM</h1>
-      <ImageList
-      cols={3}
-      rowHeight={150}
+      <div
+        className='picture-only'
       >
         {igData !== null && IgPosts()}
-      </ImageList>
+      </div>
      
 
     </div>
